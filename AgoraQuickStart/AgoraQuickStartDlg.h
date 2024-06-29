@@ -119,9 +119,10 @@ private:
     CAgoraQuickStartRtcEngineEventHandler m_eventHandler;
     bool m_initialize = false;
     bool m_remoteRender = false;
-
+    bool m_isSharingScreen = false;
     
     afx_msg void OnEnChangeEditChannel();
 public:
   
+    afx_msg void OnBnClickedWizfinish();
 };

@@ -38,13 +38,16 @@ CAgoraQuickStartDlg::CAgoraQuickStartDlg(CWnd* pParent
     m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 CAgoraQuickStartDlg::~CAgoraQuickStartDlg() {
-    CDialog::~CDialog();
-    // When deleting the CAgoraQuickStartDlg object, release the engine and related resources
+    CDialog::~CDialog();  // Ensure the base class destructor is called
+    if (m_isSharingScreen) {
+        m_rtcEngine->stopScreenCapture();
+    }
     if (m_rtcEngine) {
         m_rtcEngine->release(true);
         m_rtcEngine = NULL;
     }
 }
+
 void CAgoraQuickStartDlg::DoDataExchange(CDataExchange* pDX) {
     CDialog::DoDataExchange(pDX);
     // Associate controls and variables for reading and writing data to controls
@@ -65,7 +68,7 @@ BEGIN_MESSAGE_MAP(CAgoraQuickStartDlg, CDialog)
     ON_MESSAGE(WM_MSGID(EID_USER_JOINED), &CAgoraQuickStartDlg::OnEIDUserJoined)
     ON_MESSAGE(WM_MSGID(EID_USER_OFFLINE), &CAgoraQuickStartDlg::OnEIDUserOffline)
     ON_EN_CHANGE(IDC_EDIT_CHANNEL, &CAgoraQuickStartDlg::OnEnChangeEditChannel)
-    ON_BN_CLICKED(IDC_BUTTON1, &CAgoraQuickStartDlg::OnBnClickedButton1)
+    ON_BN_CLICKED(ID_WIZFINISH, &CAgoraQuickStartDlg::OnBnClickedWizfinish)
 END_MESSAGE_MAP()
 // CAgoraQuickStartDlg message handlers
 // Insert your project's App ID obtained from the Agora Console
@@ -163,7 +166,10 @@ void CAgoraQuickStartDlg::OnBnClickedBtnJoin() {
     m_rtcEngine->setupLocalVideo(canvas);
 }
 void CAgoraQuickStartDlg::OnBnClickedBtnLeave() {
-    // Leave the channel
+    if (m_isSharingScreen) {
+        m_rtcEngine->stopScreenCapture();
+        m_isSharingScreen = false;
+    }
     m_rtcEngine->leaveChannel();
     // Clear local view
     VideoCanvas canvas;
@@ -171,6 +177,7 @@ void CAgoraQuickStartDlg::OnBnClickedBtnLeave() {
     m_rtcEngine->setupLocalVideo(canvas);
     m_remoteRender = false;
 }
+
 LRESULT CAgoraQuickStartDlg::OnEIDJoinChannelSuccess(WPARAM wParam, LPARAM lParam) {
     // Join channel success callback
     uid_t localUid = wParam;
@@ -229,5 +236,36 @@ void CAgoraQuickStartDlg::OnEnChangeEditChannel()
 void CAgoraQuickStartDlg::OnBnClickedButton1()
 {
 
+}
+
+
+
+void CAgoraQuickStartDlg::OnBnClickedWizfinish()
+{
+    if (!m_initialize) {
+        AfxMessageBox(_T("Please initialize the engine first"));
+        return;
+    }
+
+    if (!m_isSharingScreen) {
+        // Start screen sharing
+        agora::rtc::ScreenCaptureParameters captureParams;
+        captureParams.dimensions.width = 1920; // Set desired width
+        captureParams.dimensions.height = 1080; // Set desired height
+        captureParams.frameRate = 15; // Set frame rate
+        captureParams.bitrate = 0; // Set bitrate (0 for auto)
+        captureParams.captureMouseCursor = true; // Capture mouse cursor
+        captureParams.windowFocus = true; // Capture focused window
+
+        m_rtcEngine->startScreenCaptureByDisplayId(0, {}, captureParams);
+        AfxMessageBox(_T("Screen sharing started"));
+    }
+    else {
+        // Stop screen sharing
+        m_rtcEngine->stopScreenCapture();
+        AfxMessageBox(_T("Screen sharing stopped"));
+    }
+
+    m_isSharingScreen = !m_isSharingScreen; // Toggle the screen sharing status
 }
 

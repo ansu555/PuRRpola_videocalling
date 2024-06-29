@@ -2,11 +2,14 @@
 #include <string>
 // Include relevant header files
 #include <IAgoraRtcEngine.h>
+
+
 using namespace agora;
 using namespace agora::rtc;
 using namespace agora::media;
 using namespace agora::media::base;
 
+ 
 // Define message IDs
 #define WM_MSGID(code) (WM_USER+0x200+code)
 #define EID_ERROR        0x00000001
@@ -86,6 +89,7 @@ public:
     // Handling join/leave button click events
     afx_msg void OnBnClickedBtnJoin();
     afx_msg void OnBnClickedBtnLeave();
+    afx_msg void OnBnClickedButton1();
     // Handling user joining/leaving channel callback events
     afx_msg LRESULT OnEIDJoinChannelSuccess(WPARAM wParam, LPARAM lParam);
     afx_msg LRESULT OnEIDError(WPARAM wParam, LPARAM lParam);
@@ -115,4 +119,9 @@ private:
     CAgoraQuickStartRtcEngineEventHandler m_eventHandler;
     bool m_initialize = false;
     bool m_remoteRender = false;
+
+    
+    afx_msg void OnEnChangeEditChannel();
+public:
+  
 };

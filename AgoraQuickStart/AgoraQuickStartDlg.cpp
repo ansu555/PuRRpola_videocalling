@@ -64,18 +64,20 @@ BEGIN_MESSAGE_MAP(CAgoraQuickStartDlg, CDialog)
     ON_MESSAGE(WM_MSGID(EID_LEAVE_CHANNEL), CAgoraQuickStartDlg::OnEIDLeaveChannel)
     ON_MESSAGE(WM_MSGID(EID_USER_JOINED), &CAgoraQuickStartDlg::OnEIDUserJoined)
     ON_MESSAGE(WM_MSGID(EID_USER_OFFLINE), &CAgoraQuickStartDlg::OnEIDUserOffline)
+    ON_EN_CHANGE(IDC_EDIT_CHANNEL, &CAgoraQuickStartDlg::OnEnChangeEditChannel)
+    ON_BN_CLICKED(IDC_BUTTON1, &CAgoraQuickStartDlg::OnBnClickedButton1)
 END_MESSAGE_MAP()
 // CAgoraQuickStartDlg message handlers
 // Insert your project's App ID obtained from the Agora Console
 #define APP_ID "33cceaacefc24f2cae99995c4d172ad5"
 // Insert the temporary token obtained from the Agora Console
-#define token "007eJxTYHjBczT640/fHrG7a2ubYtRnfRE2sdz4elPhv7fNb3dU6GsrMBgbJyenJiYmp6YlG5mkGSUnploCgWmySYqhuVFiimn1w+q0hkBGhlOvC1gZGSAQxGdlyEjNyclnYAAAae4jxw=="
+#define token "007eJxTYHD8KCU84UKs796Oa8KHuia7LGU1WrMsvKzkFtud8nnWy9UUGIyNk5NTExOTU9OSjUzSjJITUy2BwDTZJMXQ3CgxxbRSrT6tIZCRof+qGCsjAwSC+KwMGak5OfkMDABj7B+6"
 BOOL CAgoraQuickStartDlg::OnInitDialog() {
-    CDialog::OnInitDialog();    
+    CDialog::OnInitDialog();
     // Add "About..." menu item to the system menu
     // IDM_ABOUTBOX must be in the system command range
     ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
-    ASSERT(IDM_ABOUTBOX < 0xF000);
+    ASSERT(IDM_ABOUTBOX < 0xF000); 
     CMenu* pSysMenu = GetSystemMenu(FALSE);
     if (pSysMenu != nullptr) {
         BOOL bNameValid;
@@ -210,3 +212,22 @@ LRESULT CAgoraQuickStartDlg::OnEIDError(WPARAM wParam, LPARAM lParam) {
     // Error callback
     return 0;
 }
+
+
+void CAgoraQuickStartDlg::OnEnChangeEditChannel()
+{
+    // TODO:  If this is a RICHEDIT control, the control will not
+    // send this notification unless you override the CDialog::OnInitDialog()
+    // function and call CRichEditCtrl().SetEventMask()
+    // with the ENM_CHANGE flag ORed into the mask.
+
+    // TODO:  Add your control notification handler code here
+}
+ 
+
+
+void CAgoraQuickStartDlg::OnBnClickedButton1()
+{
+
+}
+

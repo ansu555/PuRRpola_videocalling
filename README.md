@@ -233,9 +233,6 @@ The application utilizes the Agora SDK for WebRTC functionality, enabling real-t
 - `resource.h`, `stdafx.h`, `stdafx.cpp`: Standard MFC application files.
 - `res/`: Contains resources like icons and dialog templates.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgements
 
@@ -244,7 +241,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-For any questions or inquiries, please contact [your-email@example.com](mailto:your-email@example.com).
+For any questions or inquiries, please contact [anik200365@gmail.com](mailto:anik200365@gmail.com).
 
 ```
 

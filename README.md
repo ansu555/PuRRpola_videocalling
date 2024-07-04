@@ -1,6 +1,4 @@
-Sure, I'll add a section to the README.md that explains the WebRTC implementation from your code.
 
-```markdown
 # Agora Video Calling Application with NVIDIA Maxine Integration
 
 ## Overview

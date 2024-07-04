@@ -3,20 +3,25 @@
 
 ## Overview
 
-This project is a video calling application built using the Agora SDK in C++. The application has been further ##aim to integrate NVIDIA Maxine's advanced AR SDK features, such as eye gaze tracking.
+This project is a video calling application built using the Agora SDK in C++. The application has been further /aim/ to integrate NVIDIA Maxine's advanced AR SDK features, such as eye gaze tracking.
 
 ## Features
 
 - **Video Calling**: Real-time video calling capabilities using the Agora SDK.
-- **NVIDIA Maxine Integration**: Enhanced video communication with advanced features such as eye gaze tracking.
 - **Screen Sharing**: Share your screen with other participants during the video call.
 - **User Management**: Handle user joining and leaving events efficiently.
+
+## Future Golas
+
+- **NVIDIA Maxine Integration**: Enhanced video communication with advanced features such as eye gaze tracking.
+- **Real Time Translane**: Enable real time translane into our application.
+- **Live Potrait**: Enhance video quality by using Live Potrait.
 
 ## Getting Started
 
 ### Prerequisites
 
-- **Visual Studio**: Ensure you have Visual Studio installed (recommended: Visual Studio 2019 or later).
+- **Visual Studio**: Ensure you have Visual Studio installed (recommended: Visual Studio 2019 or later). Install
 - **Agora SDK**: Download the Agora SDK from the [Agora Developer Portal](https://www.agora.io/en/blog/download/).
 - **NVIDIA Maxine AR SDK**: Download the NVIDIA Maxine AR SDK from the [NVIDIA Developer Portal](https://developer.nvidia.com/nvidia-maxine-sdk).
 

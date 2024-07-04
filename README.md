@@ -3,7 +3,7 @@
 
 ## Overview
 
-This project is a video calling application built using the Agora SDK in C++. The application has been further enhanced to integrate NVIDIA Maxine's advanced AR SDK features, such as eye gaze tracking.
+This project is a video calling application built using the Agora SDK in C++. The application has been further ##aim to integrate NVIDIA Maxine's advanced AR SDK features, such as eye gaze tracking.
 
 ## Features
 

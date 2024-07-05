@@ -1,4 +1,4 @@
-
+![Logo](./Purrpola.png)
 # Agora Video Calling Application with NVIDIA Maxine Integration
 
 ## Overview

@@ -1,4 +1,5 @@
-<img src="./.PuRRpola.png" alt="Logo" width="200"/>
+<img src="./Purrpola.png" alt="Logo" width="200"/>
+
 # Agora Video Calling Application with NVIDIA Maxine Integration
 
 ## Overview

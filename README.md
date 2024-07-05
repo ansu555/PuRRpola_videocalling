@@ -18,6 +18,11 @@ This project is a video calling application built using the Agora SDK in C++. Th
 - **Real Time Translane**: Enable real time translane into our application.
 - **Live Potrait**: Enhance video quality by using Live Potrait.
 
+<video width="640" height="360" controls>
+    <source src="WhatsApp Video 2024-06-30 at 09.08.37" type="video/mp4">
+</video>
+
+
 ## Getting Started
 
 ### Prerequisites
